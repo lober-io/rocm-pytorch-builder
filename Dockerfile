@@ -72,7 +72,8 @@ RUN sed --in-place=.rocm-backup 's|^\(PATH=.*\)"$|\1:/opt/rocm/bin"|' /etc/envir
 
 WORKDIR /root
 COPY util/pytorch_build.sh .
-RUN chmod +x pytorch_build.sh
+COPY util/pytorch_install.sh .
+RUN chmod +x pytorch_build.sh pytorch_install.sh
 
 COPY util/Anaconda3-2020.02-Linux-x86_64.sh .
 RUN  bash Anaconda3-2020.02-Linux-x86_64.sh -b &&  rm Anaconda3-2020.02-Linux-x86_64.sh

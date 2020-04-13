@@ -25,6 +25,7 @@ To test your pytorch you can run the container with `./run_it.sh` to run all pyt
 
 ```
 ./run_it.sh
+./pytorch_install.sh
 cd /data/pytorch
 PYTORCH_TEST_WITH_ROCM=1 python test/run_test.py --verbose
 ``` 
@@ -34,6 +35,7 @@ You can run mnist via:
 
 ```
 ./run_it.sh
+./pytorch_install.sh
 cd /data/pytorch/examples/mnist
 python main.py
 ```
