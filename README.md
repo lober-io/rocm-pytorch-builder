@@ -7,7 +7,7 @@ This builds the lastest pytorch for rocm in a prepared rocm-dev container and st
 
 The `start.sh` downloads anaconda, runs the container build and finally starts up the container.
 
-In the container, the `pytorch_build.sh` script clones the pytorch git and all submodules, prepare the sources for amdgpu and start the build. Be aware that the build takes some while and the container can consume quite a lot of ram (16GB+). If the build fails, reduce `MAX_JOBS` in the `pytorch_build.sh` and start the container again.
+In the container, the `pytorch_build.sh` script clones the pytorch git and all submodules, prepare the sources for amdgpu and start the build. Be aware that the build takes some time and the container can consume quite a lot of ram (16GB+). If the build fails, reduce `MAX_JOBS` in the `pytorch_build.sh` and run `start.sh` again or use `run_it.sh` to fix it in the container via `bash`.
 
 You can control container name, tag and host mount path for pytorch via the `env.txt`.
 
@@ -15,6 +15,7 @@ To follow the build execute `docker logs -f rocm-pytorch-builder`.
 
 ## Target GPU
 You need to change the `ENV HCC_AMDGPU_TARGET=` to match your target GPU.
+
 *For example, gfx906 for vega 20 or gfx900 for vega 10*
 
 
@@ -47,4 +48,5 @@ You can get the output of the conatiner with `docker logs rocm-pytorch-builder`.
 # Sources
 
 https://rocm-documentation.readthedocs.io/en/latest/Deep_learning/Deep-learning.html#option-2-install-using-pytorch-upstream-docker-file
+
 https://github.com/zhanghang1989/PyTorch-Encoding/issues/167
